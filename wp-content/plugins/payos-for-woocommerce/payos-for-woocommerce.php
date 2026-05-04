@@ -113,8 +113,13 @@ function handle_payos_webhook_callback(WP_REST_Request $request) {
 
     error_log('PAYOS WEBHOOK: ' . wp_json_encode($params));
 
-    if (empty($params) || ($params['code'] ?? '') !== "00") {
-        return new WP_REST_Response(['status' => 'error', 'message' => 'Invalid payload'], 400);
+    // CHỈNH SỬA TẠM THỜI: Nếu không có dữ liệu hoặc test từ payOS, vẫn trả về 200
+    if (empty($params)) {
+        return new WP_REST_Response(['status' => 'success', 'message' => 'Webhook active'], 200);
+    }
+    
+    if (($params['code'] ?? '') !== "00") {
+         return new WP_REST_Response(['status' => 'error', 'message' => 'Invalid code'], 200); // Vẫn trả 200 để payOS chấp nhận link
     }
 
     $data     = $params['data'] ?? [];
