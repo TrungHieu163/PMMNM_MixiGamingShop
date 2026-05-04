@@ -102,27 +102,40 @@ function init_payos_gateway_class() {
     });
 }
 
-// 4. Endpoint nhận Webhook để tự động duyệt đơn hàng
-add_action('rest_api_init', function () {
-    register_rest_route('payos/v1', '/webhook', array(
-        'methods' => 'POST',
-        'callback' => 'handle_payos_webhook_callback',
-        'permission_callback' => '__return_true',
-    ));
-});
+    // === Đăng ký REST Route ===
+    add_action('rest_api_init', function () {
+        register_rest_route('payos/v1', '/webhook', [
+            'methods'             => ['POST'],           // hoặc 'POST, GET' để test
+            'callback'            => 'handle_payos_webhook_callback',
+            'permission_callback' => '__return_true',   // tạm thời, sau này nên check signature
+        ]);
+    });
 
-function handle_payos_webhook_callback($request) {
-    $params = $request->get_json_params();
-    if (!$params || $params['code'] != "00") return new WP_REST_Response('Error', 400);
+    // === Hàm xử lý webhook ===
+    function handle_payos_webhook_callback(WP_REST_Request $request) {
+        $params = $request->get_json_params();
+        
+        // Log để debug (rất quan trọng)
+        error_log('PAYOS WEBHOOK RECEIVED: ' . wp_json_encode($params));
 
-    $data = $params['data'];
-    $order_id = $data['orderCode'];
-    $order = wc_get_order($order_id);
+        if (empty($params) || ($params['code'] ?? '') !== "00") {
+            return new WP_REST_Response(['status' => 'error', 'message' => 'Invalid payload'], 400);
+        }
 
-    if ($order && !$order->is_paid()) {
-        $order->payment_complete(); // Chuyển trạng thái sang "Processing"
-        $order->add_order_note('payOS: Xác nhận thanh toán thành công.');
-        return new WP_REST_Response('Success', 200);
+        $data = $params['data'] ?? [];
+        $order_id = !empty($data['orderCode']) ? intval($data['orderCode']) : 0;
+        $order = wc_get_order($order_id);
+
+        if (!$order) {
+            return new WP_REST_Response(['status' => 'error', 'message' => 'Order not found'], 404);
+        }
+
+        if ($order->is_paid()) {
+            return new WP_REST_Response(['status' => 'success', 'message' => 'Order already paid'], 200);
+        }
+
+        $order->payment_complete();
+        $order->add_order_note('payOS: Thanh toán thành công qua webhook.');
+        
+        return new WP_REST_Response(['status' => 'success'], 200);
     }
-    return new WP_REST_Response('Order not found or paid', 404);
-}
