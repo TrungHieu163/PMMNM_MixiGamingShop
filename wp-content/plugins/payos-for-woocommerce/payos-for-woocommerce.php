@@ -102,13 +102,18 @@ function init_payos_gateway_class() {
 // ======================
 add_action('rest_api_init', function () {
     register_rest_route('payos/v1', '/webhook', [
-        'methods'             => 'POST',
+        'methods'             => ['GET', 'POST'],
         'callback'            => 'handle_payos_webhook_callback',
         'permission_callback' => '__return_true',
     ]);
 });
 
 function handle_payos_webhook_callback(WP_REST_Request $request) {
+    // Nếu payOS gọi bằng GET để check link, trả về 200 ngay
+    if ($request->get_method() === 'GET') {
+        return new WP_REST_Response(['status' => 'success', 'message' => 'Webhook active'], 200);
+    }
+    
     $params = $request->get_json_params();
 
     error_log('PAYOS WEBHOOK: ' . wp_json_encode($params));
