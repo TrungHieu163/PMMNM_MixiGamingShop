@@ -63,8 +63,17 @@ function init_payos_gateway_class() {
             );
 
             // Tạo signature
+            // 1. Sắp xếp các tham số theo Alphabet (giữ nguyên)
             ksort($body);
-            $signature = hash_hmac('sha256', http_build_query($body), $this->checksum_key);
+
+            // 2. Tự nối chuỗi thô thủ công (KHÔNG dùng http_build_query)
+            $data_string = "";
+            foreach ($body as $key => $value) {
+                $data_string .= ($data_string == "" ? "" : "&") . $key . "=" . $value;
+            }
+
+            // 3. Tính toán chữ ký từ chuỗi thô vừa nối
+            $signature = hash_hmac('sha256', $data_string, $this->checksum_key);
             $body['signature'] = $signature;
 
             $response = wp_remote_post('https://api-merchant.payos.vn/v2/payment-requests', array(
@@ -98,50 +107,55 @@ function init_payos_gateway_class() {
 }
 
 // ======================
-// 2. Webhook (Đặt ngoài cùng)
+// 2. WEBHOOK - Tối ưu cho payOS
 // ======================
-add_action('rest_api_init', function () {
+add_action('rest_api_init', 'payos_register_webhook_route');
+
+function payos_register_webhook_route() {
     register_rest_route('payos/v1', '/webhook', [
         'methods'             => ['GET', 'POST'],
         'callback'            => 'handle_payos_webhook_callback',
         'permission_callback' => '__return_true',
     ]);
-});
+}
 
 function handle_payos_webhook_callback(WP_REST_Request $request) {
-    // Nếu payOS gọi bằng GET để check link, trả về 200 ngay
-    if ($request->get_method() === 'GET') {
-        return new WP_REST_Response(['status' => 'success', 'message' => 'Webhook active'], 200);
-    }
+    $method = $request->get_method();
     
+    // Debug log
+    error_log("PAYOS WEBHOOK - Method: $method | IP: " . $_SERVER['REMOTE_ADDR']);
+
+    // Trường hợp payOS test bằng GET hoặc request rỗng
+    if ($method === 'GET' || empty($request->get_json_params())) {
+        return new WP_REST_Response(['status' => 'success', 'message' => 'Webhook is active'], 200);
+    }
+
     $params = $request->get_json_params();
+    error_log('PAYOS WEBHOOK DATA: ' . wp_json_encode($params));
 
-    error_log('PAYOS WEBHOOK: ' . wp_json_encode($params));
+    // payOS gửi signature trong header hoặc body
+    $signature = $request->get_header('x-signature') ?: ($params['signature'] ?? '');
 
-    // CHỈNH SỬA TẠM THỜI: Nếu không có dữ liệu hoặc test từ payOS, vẫn trả về 200
-    if (empty($params)) {
-        return new WP_REST_Response(['status' => 'success', 'message' => 'Webhook active'], 200);
+    // Nếu là request test confirm của payOS (thường có code 00 nhưng chưa có order thật)
+    if (isset($params['code']) && $params['code'] === "00") {
+        // Trả về 200 để payOS chấp nhận link
+        return new WP_REST_Response(['status' => 'success'], 200);
     }
-    
-    if (($params['code'] ?? '') !== "00") {
-         return new WP_REST_Response(['status' => 'error', 'message' => 'Invalid code'], 200); // Vẫn trả 200 để payOS chấp nhận link
-    }
 
+    // Xử lý webhook thật (khi khách thanh toán)
     $data     = $params['data'] ?? [];
-    $order_id = !empty($data['orderCode']) ? intval($data['orderCode']) : 0;
+    $order_id = !empty($data['orderCode']) ? (int)$data['orderCode'] : 0;
     $order    = wc_get_order($order_id);
 
     if (!$order) {
         error_log("PAYOS WEBHOOK: Order #{$order_id} not found");
-        return new WP_REST_Response(['status' => 'error', 'message' => 'Order not found'], 404);
+        return new WP_REST_Response(['status' => 'success'], 200); // Vẫn trả 200 để không block
     }
 
-    if ($order->is_paid()) {
-        return new WP_REST_Response(['status' => 'success'], 200);
+    if (!$order->is_paid()) {
+        $order->payment_complete();
+        $order->add_order_note('payOS: Thanh toán thành công qua webhook.');
     }
-
-    $order->payment_complete();
-    $order->add_order_note('payOS: Thanh toán thành công qua webhook.');
 
     return new WP_REST_Response(['status' => 'success'], 200);
 }
