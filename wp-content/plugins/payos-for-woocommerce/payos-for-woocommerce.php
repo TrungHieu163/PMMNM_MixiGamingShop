@@ -122,40 +122,36 @@ function payos_register_webhook_route() {
 function handle_payos_webhook_callback(WP_REST_Request $request) {
     $method = $request->get_method();
     
-    // Debug log
-    error_log("PAYOS WEBHOOK - Method: $method | IP: " . $_SERVER['REMOTE_ADDR']);
-
-    // Trường hợp payOS test bằng GET hoặc request rỗng
-    if ($method === 'GET' || empty($request->get_json_params())) {
+    // 1. Nếu là GET (payOS kiểm tra link lúc lưu cài đặt)
+    if ($method === 'GET') {
         return new WP_REST_Response(['status' => 'success', 'message' => 'Webhook is active'], 200);
     }
 
     $params = $request->get_json_params();
-    error_log('PAYOS WEBHOOK DATA: ' . wp_json_encode($params));
-
-    // payOS gửi signature trong header hoặc body
-    $signature = $request->get_header('x-signature') ?: ($params['signature'] ?? '');
-
-    // Nếu là request test confirm của payOS (thường có code 00 nhưng chưa có order thật)
-    if (isset($params['code']) && $params['code'] === "00") {
-        // Trả về 200 để payOS chấp nhận link
-        return new WP_REST_Response(['status' => 'success'], 200);
+    
+    // 2. Kiểm tra dữ liệu đầu vào
+    if (!$params || !isset($params['code'])) {
+        return new WP_REST_Response(['status' => 'error', 'message' => 'No data'], 400);
     }
 
-    // Xử lý webhook thật (khi khách thanh toán)
-    $data     = $params['data'] ?? [];
-    $order_id = !empty($data['orderCode']) ? (int)$data['orderCode'] : 0;
-    $order    = wc_get_order($order_id);
+    // 3. Xử lý logic cập nhật đơn hàng
+    // Chỉ thực hiện khi thanh toán thành công (code 00)
+    if ($params['code'] === "00") {
+        $data     = $params['data'] ?? [];
+        $order_id = !empty($data['orderCode']) ? (int)$data['orderCode'] : 0;
+        $order    = wc_get_order($order_id);
 
-    if (!$order) {
-        error_log("PAYOS WEBHOOK: Order #{$order_id} not found");
-        return new WP_REST_Response(['status' => 'success'], 200); // Vẫn trả 200 để không block
+        if ($order) {
+            if (!$order->is_paid()) {
+                // Đổi trạng thái sang Processing và trừ kho
+                $order->update_status('completed', 'payOS: Thanh toán thành công.');
+                $order->add_order_note('payOS: Xác nhận thanh toán thành công qua Webhook.');
+                error_log("PAYOS: Order #{$order_id} updated to Processing.");
+            }
+            return new WP_REST_Response(['status' => 'success'], 200);
+        }
     }
 
-    if (!$order->is_paid()) {
-        $order->payment_complete();
-        $order->add_order_note('payOS: Thanh toán thành công qua webhook.');
-    }
-
+    // 4. Trả về thành công cho các trường hợp khác (như hủy đơn) để payOS không gửi lại
     return new WP_REST_Response(['status' => 'success'], 200);
 }
