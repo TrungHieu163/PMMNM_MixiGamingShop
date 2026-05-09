@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
     dots: false,
     rtl: false,
     responsive: {
-    0: { 
+    0: {  
       items: 1 
     },
     768: { 
