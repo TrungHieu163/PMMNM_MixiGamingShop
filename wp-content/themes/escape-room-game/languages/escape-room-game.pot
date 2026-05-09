@@ -1,0 +1,1873 @@
+# Copyright (C) 2026 VWThemes
+# This file is distributed under the GPLv3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Escape Room Game 1.2.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/escape-room-game\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-31T18:17:42+05:30\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: escape-room-game\n"
+
+#. Theme Name of the theme
+#: style.css
+#: inc/core/activation-notice.php:77
+#: inc/core/activation-notice.php:81
+#: inc/core/theme-info.php:5
+#: inc/core/theme-info.php:6
+#: inc/core/theme-info.php:51
+msgid "Escape Room Game"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://www.vwthemes.com/products/escape-room-game"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "The Escape Room Game is a perfect solution for businesses, entertainment centers, and enthusiasts aiming to create an engaging online presence for escape room experiences while supporting ecommerce functionality for selling tickets, gift cards, merchandise, and themed products through WooCommerce, making it ideal for online store building, dropshipping shop ideas, and event-based bookings; designed with a modern, interactive layout, the theme showcases puzzle games, mystery games, adventure games, challenges, and group activities across desktops, tablets, and mobile devices, emphasizing user engagement with intuitive navigation, bold visuals, strategically placed call-to-action buttons, and SEO-friendly architecture compatible with Yoast SEO to boost visibility; online reservations and group bookings are simplified with seamless integration of Bookly and Contact Form 7, while customizable layouts, adjustable colors, fonts, and content sections allow full branding control and promotion of special offers, seasonal events, and limited-time challenges, turning visitors into paying participants; with fast loading performance, cross-browser support, and immersive interactive design, the Escape Room Game delivers a conversion-focused, professional, and dynamic website that captivates users and encourages repeat engagement for escape gaming businesses.. Demo:https://www.vwthemes.net/escape-room-game-pro/"
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "VWThemes"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://www.vwthemes.com/"
+msgstr ""
+
+#: functions.php:86
+msgid "https://www.vwthemes.com/products/escape-room-wordpress-theme"
+msgstr ""
+
+#: functions.php:87
+msgid "https://wordpress.org/support/theme/escape-room-game/"
+msgstr ""
+
+#: functions.php:88
+msgid "https://wordpress.org/support/theme/escape-room-game/reviews/"
+msgstr ""
+
+#: functions.php:89
+msgid "https://www.vwthemes.net/escape-room-game-pro/"
+msgstr ""
+
+#: functions.php:90
+msgid "https://preview.vwthemesdemo.com/docs/escape-room-game-pro/"
+msgstr ""
+
+#: functions.php:91
+msgid "https://preview.vwthemesdemo.com/docs/free-escape-room-game/"
+msgstr ""
+
+#: functions.php:92
+msgid "https://www.vwthemes.com/products/wp-theme-bundle"
+msgstr ""
+
+#: functions.php:93
+msgid "https://preview.vwthemesdemo.com/docs/theme-bundle/"
+msgstr ""
+
+#: inc/block-patterns.php:33
+msgid "Default header"
+msgstr ""
+
+#: inc/block-patterns.php:38
+msgid "Default footer"
+msgstr ""
+
+#: inc/block-patterns.php:43
+msgid "Home Banner"
+msgstr ""
+
+#: inc/block-patterns.php:47
+#: inc/block-patterns.php:132
+msgid "About Us Section"
+msgstr ""
+
+#: inc/block-patterns.php:51
+#: inc/block-patterns.php:133
+msgid "Experience Section"
+msgstr ""
+
+#: inc/block-patterns.php:55
+#: inc/block-patterns.php:134
+msgid "Testimonial Section"
+msgstr ""
+
+#: inc/block-patterns.php:59
+#: inc/block-patterns.php:135
+msgid "News Section"
+msgstr ""
+
+#: inc/block-patterns.php:63
+#: inc/block-patterns.php:136
+msgid "FAQ Section"
+msgstr ""
+
+#: inc/block-patterns.php:67
+msgid "Primary Sidebar"
+msgstr ""
+
+#: inc/block-patterns.php:71
+msgid "404 content"
+msgstr ""
+
+#: inc/block-patterns.php:75
+msgid "Post Single Column"
+msgstr ""
+
+#: inc/block-patterns.php:80
+msgid "Post Two Column"
+msgstr ""
+
+#: inc/block-patterns.php:85
+msgid "Post Three Column"
+msgstr ""
+
+#: inc/block-patterns.php:90
+msgid "Post Four Column"
+msgstr ""
+
+#: inc/block-patterns.php:95
+msgid "Feature Post Column"
+msgstr ""
+
+#: inc/block-patterns.php:100
+msgid "Comment Section 1"
+msgstr ""
+
+#: inc/block-patterns.php:104
+msgid "Cover With Post Title"
+msgstr ""
+
+#: inc/block-patterns.php:108
+msgid "Cover With Search Title"
+msgstr ""
+
+#: inc/block-patterns.php:112
+msgid "Cover With Archive Title"
+msgstr ""
+
+#: inc/block-patterns.php:116
+msgid "Cover With Index Title"
+msgstr ""
+
+#: inc/block-patterns.php:120
+msgid "Theme Button"
+msgstr ""
+
+#: inc/block-patterns.php:126
+msgid "Footers"
+msgstr ""
+
+#: inc/block-patterns.php:127
+msgid "Headers"
+msgstr ""
+
+#: inc/block-patterns.php:128
+#: patterns/primary-sidebar.php:28
+msgid "Pages"
+msgstr ""
+
+#: inc/block-patterns.php:129
+msgid "Query"
+msgstr ""
+
+#: inc/block-patterns.php:130
+msgid "Sidebars"
+msgstr ""
+
+#: inc/block-patterns.php:131
+msgid "Banner Sections"
+msgstr ""
+
+#: inc/block-patterns.php:137
+msgid "Comment Sections"
+msgstr ""
+
+#: inc/block-patterns.php:138
+msgid "Theme Button Sections"
+msgstr ""
+
+#: inc/core/activation-notice.php:19
+msgid "🎉 Welcome to VW Themes,"
+msgstr ""
+
+#: inc/core/activation-notice.php:20
+msgid "You are now using the Escape Room Game, a beautifully designed theme to kickstart your website."
+msgstr ""
+
+#: inc/core/activation-notice.php:21
+msgid "To help you get started quickly, use the options below:"
+msgstr ""
+
+#: inc/core/activation-notice.php:25
+msgid "GET STARTED"
+msgstr ""
+
+#: inc/core/activation-notice.php:59
+msgid "VIEW DEMO"
+msgstr ""
+
+#: inc/core/activation-notice.php:65
+msgid "UPGRADE TO PRO"
+msgstr ""
+
+#: inc/core/activation-notice.php:71
+msgid "BUNDLE OF 485+ THEMES"
+msgstr ""
+
+#: inc/core/theme-info.php:36
+msgid "Free Setup"
+msgstr ""
+
+#: inc/core/theme-info.php:37
+msgid "Get Premium"
+msgstr ""
+
+#: inc/core/theme-info.php:38
+msgid "Free VS Premium"
+msgstr ""
+
+#: inc/core/theme-info.php:39
+#: inc/core/theme-info.php:307
+msgid "WP Theme Bundle"
+msgstr ""
+
+#: inc/core/theme-info.php:53
+msgid "The Escape Room Game is an excellent solution for businesses, entertainment centers, and enthusiasts looking to build a compelling online presence for escape room experiences while facilitating ecommerce functionality for selling tickets, gift cards, merchandise, and themed products through WooCommerce. This makes it perfect for ideas related to online store building and event-based bookings. The theme features a modern, interactive layout that highlights puzzle games, mystery adventures, challenges, and group activities across desktops, tablets, and mobile devices, all while emphasizing user engagement through intuitive navigation, eye-catching visuals, and well-placed call-to-action buttons. Its SEO-friendly architecture, compatible with Yoast SEO, enhances visibility, while seamless integration with Bookly and Contact Form 7 simplifies online reservations and group bookings. Customizable layouts, adjustable colors, fonts, and content sections allow for full branding control, promoting special offers, seasonal events, and limited-time challenges that turn visitors into paying participants. With features like fast loading performance, cross-browser support, and an immersive design, the Escape Room Game delivers a professional and dynamic website that not only captivates users but also encourages repeat engagement, making it a must for escape game entertainment. Demo: https://www.vwthemes.net/escape-room-game-pro/"
+msgstr ""
+
+#: inc/core/theme-info.php:56
+msgid "Edit Your Site"
+msgstr ""
+
+#: inc/core/theme-info.php:57
+msgid "Visit Your Site"
+msgstr ""
+
+#: inc/core/theme-info.php:61
+msgid "Having Trouble, Need Support?"
+msgstr ""
+
+#: inc/core/theme-info.php:62
+msgid "Our dedicated team is well prepared to help you out in case of queries and doubts regarding our theme."
+msgstr ""
+
+#: inc/core/theme-info.php:64
+msgid "Support Forum"
+msgstr ""
+
+#: inc/core/theme-info.php:68
+msgid "Reviews & Testimonials"
+msgstr ""
+
+#: inc/core/theme-info.php:69
+msgid "All the features and aspects of this WordPress Theme are phenomenal. I'd recommend this theme to all."
+msgstr ""
+
+#: inc/core/theme-info.php:71
+msgid "Reviews"
+msgstr ""
+
+#: inc/core/theme-info.php:75
+msgid "Theme Documentation"
+msgstr ""
+
+#: inc/core/theme-info.php:76
+msgid "If you need any assistance regarding setting up and configuring the Theme, our documentation is there."
+msgstr ""
+
+#: inc/core/theme-info.php:78
+msgid "Free Theme Documentation"
+msgstr ""
+
+#: inc/core/theme-info.php:89
+msgid "Premium Theme Information"
+msgstr ""
+
+#: inc/core/theme-info.php:91
+msgid "The Escape Room WordPress Theme is the ultimate solution for businesses in the entertainment and adventure industry looking to create a captivating online presence. Designed with immersive visuals and interactive elements, this theme allows you to showcase your escape room games, highlight challenges, and engage visitors from the moment they land on your website. Its responsive design ensures seamless performance across desktops, tablets, and smartphones, while the intuitive interface makes navigation easy for both you and your customers. Perfect for promoting events, online bookings, and team-building activities, the theme integrates effortlessly with popular WordPress plugins, enabling smooth functionality for payment gateways, booking systems, and contact forms. Whether you’re a small local escape room or a growing chain, this theme provides a professional, modern, and user-friendly platform to attract and retain customers. The Escape Room WordPress Theme combines aesthetics with functionality, giving your business a competitive edge in the digital space."
+msgstr ""
+
+#: inc/core/theme-info.php:93
+#: inc/core/theme-info.php:341
+#: inc/section-pro/customizer.php:84
+msgid "Live Demo"
+msgstr ""
+
+#: inc/core/theme-info.php:94
+#: inc/core/theme-info.php:342
+msgid "Buy Premium"
+msgstr ""
+
+#: inc/core/theme-info.php:95
+#: inc/core/theme-info.php:321
+#: inc/core/theme-info.php:343
+msgid "Documentation"
+msgstr ""
+
+#: inc/core/theme-info.php:106
+msgid "Theme Features"
+msgstr ""
+
+#: inc/core/theme-info.php:112
+msgid "Features"
+msgstr ""
+
+#: inc/core/theme-info.php:113
+msgid "Free Themes"
+msgstr ""
+
+#: inc/core/theme-info.php:114
+msgid "Premium Themes"
+msgstr ""
+
+#: inc/core/theme-info.php:119
+msgid "Easy Setup"
+msgstr ""
+
+#: inc/core/theme-info.php:124
+msgid "Responsive Design"
+msgstr ""
+
+#: inc/core/theme-info.php:129
+msgid "SEO Friendly"
+msgstr ""
+
+#: inc/core/theme-info.php:134
+msgid "Banner Settings"
+msgstr ""
+
+#: inc/core/theme-info.php:139
+msgid "Template Pages"
+msgstr ""
+
+#: inc/core/theme-info.php:140
+#: inc/core/theme-info.php:145
+#: inc/core/theme-info.php:146
+#: inc/core/theme-info.php:156
+msgid "1"
+msgstr ""
+
+#: inc/core/theme-info.php:141
+msgid "14"
+msgstr ""
+
+#: inc/core/theme-info.php:144
+msgid "Home Page Template"
+msgstr ""
+
+#: inc/core/theme-info.php:149
+msgid "Theme sections"
+msgstr ""
+
+#: inc/core/theme-info.php:150
+msgid "2"
+msgstr ""
+
+#: inc/core/theme-info.php:151
+msgid "12"
+msgstr ""
+
+#: inc/core/theme-info.php:154
+msgid "Contact us Page Template"
+msgstr ""
+
+#: inc/core/theme-info.php:159
+msgid "Blog Templates & Layout"
+msgstr ""
+
+#: inc/core/theme-info.php:161
+msgid "3(Full width/Left/Right Sidebar)"
+msgstr ""
+
+#: inc/core/theme-info.php:164
+msgid "Section Reordering"
+msgstr ""
+
+#: inc/core/theme-info.php:169
+msgid "Demo Importer"
+msgstr ""
+
+#: inc/core/theme-info.php:174
+msgid "Full Documentation"
+msgstr ""
+
+#: inc/core/theme-info.php:179
+msgid "Latest WordPress Compatibility"
+msgstr ""
+
+#: inc/core/theme-info.php:184
+msgid "Support 3rd Party Plugins"
+msgstr ""
+
+#: inc/core/theme-info.php:189
+msgid "Secure and Optimized Code"
+msgstr ""
+
+#: inc/core/theme-info.php:194
+msgid "Exclusive Functionalities"
+msgstr ""
+
+#: inc/core/theme-info.php:199
+msgid "Section Enable / Disable"
+msgstr ""
+
+#: inc/core/theme-info.php:204
+msgid "Section Google Font Choices"
+msgstr ""
+
+#: inc/core/theme-info.php:209
+msgid "Gallery"
+msgstr ""
+
+#: inc/core/theme-info.php:214
+msgid "Simple & Mega Menu Option"
+msgstr ""
+
+#: inc/core/theme-info.php:219
+msgid "Support to add custom CSS / JS "
+msgstr ""
+
+#: inc/core/theme-info.php:224
+msgid "Shortcodes"
+msgstr ""
+
+#: inc/core/theme-info.php:229
+msgid "Custom Background, Colors, Header, Logo & Menu"
+msgstr ""
+
+#: inc/core/theme-info.php:234
+msgid "Premium Membership"
+msgstr ""
+
+#: inc/core/theme-info.php:239
+msgid "Budget Friendly Value"
+msgstr ""
+
+#: inc/core/theme-info.php:244
+msgid "Priority Error Fixing"
+msgstr ""
+
+#: inc/core/theme-info.php:249
+msgid "Custom Feature Addition"
+msgstr ""
+
+#: inc/core/theme-info.php:254
+msgid "All Access Theme Pass"
+msgstr ""
+
+#: inc/core/theme-info.php:259
+msgid "Seamless Customer Support"
+msgstr ""
+
+#: inc/core/theme-info.php:264
+msgid "WordPress 6.4 or later"
+msgstr ""
+
+#: inc/core/theme-info.php:269
+msgid "PHP 8.2 or 8.3"
+msgstr ""
+
+#: inc/core/theme-info.php:274
+msgid "MySQL 5.6 (or greater) | MariaDB 10.0 (or greater)"
+msgstr ""
+
+#: inc/core/theme-info.php:279
+msgid "Influence Registration"
+msgstr ""
+
+#: inc/core/theme-info.php:284
+msgid "Detailed Influencer Portfolio"
+msgstr ""
+
+#: inc/core/theme-info.php:289
+msgid "Premium Pricing Plan"
+msgstr ""
+
+#: inc/core/theme-info.php:296
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: inc/core/theme-info.php:309
+msgid "Enhance your website effortlessly with our WP Theme Bundle. Get access to 485+ premium WordPress themes and 5+ powerful plugins, all designed to meet diverse business needs. Enjoy seamless integration with any plugins, ultimate customization flexibility, and regular updates to keep your site current and secure. Plus, benefit from our dedicated customer support, ensuring a smooth and professional web experience."
+msgstr ""
+
+#: inc/core/theme-info.php:311
+msgid "Features:"
+msgstr ""
+
+#: inc/core/theme-info.php:312
+msgid "485+ Premium Themes & 5+ Plugins."
+msgstr ""
+
+#: inc/core/theme-info.php:313
+msgid "Seamless Integration."
+msgstr ""
+
+#: inc/core/theme-info.php:314
+msgid "Customization Flexibility."
+msgstr ""
+
+#: inc/core/theme-info.php:315
+msgid "Regular Updates."
+msgstr ""
+
+#: inc/core/theme-info.php:316
+msgid "Dedicated Support."
+msgstr ""
+
+#: inc/core/theme-info.php:318
+msgid "Upgrade now and give your website the professional edge it deserves, all at an unbeatable price of $99!"
+msgstr ""
+
+#: inc/core/theme-info.php:320
+msgid "Get Bundle"
+msgstr ""
+
+#: inc/core/theme-info.php:333
+msgid "Welcome To Escape Room Game"
+msgstr ""
+
+#: inc/core/theme-info.php:335
+#: inc/tgm/class-tgm-plugin-activation.php:2701
+msgid "Version"
+msgstr ""
+
+#: inc/core/theme-info.php:336
+msgid "Get 20% Of On Pro Theme-Use Code: "
+msgstr ""
+
+#: inc/core/theme-info.php:336
+msgid "VWPRO20"
+msgstr ""
+
+#: inc/core/theme-info.php:338
+msgid "All Our Wordpress Themes Are Modern, Minimalist, 100% Responsive, Seo-Friendly,Feature-Rich, And Multipurpose That Best Suit Designers, Bloggers And Other Professionals Who Are Working In The Creative Fields."
+msgstr ""
+
+#: inc/core/theme-info.php:354
+msgid "WP THEME BUNDLE"
+msgstr ""
+
+#: inc/core/theme-info.php:355
+msgid "Get Access to 485+ Premium WordPress Themes At Just $99"
+msgstr ""
+
+#: inc/core/theme-info.php:357
+msgid "Get 10% OFF On Bundle"
+msgstr ""
+
+#: inc/core/theme-info.php:368
+msgid "GET PRO"
+msgstr ""
+
+#: inc/core/theme-info.php:369
+msgid "20% Off"
+msgstr ""
+
+#: inc/section-pro/customizer.php:75
+msgid "Escape Room Game Pro"
+msgstr ""
+
+#: inc/section-pro/customizer.php:76
+msgid "Upgrade Pro"
+msgstr ""
+
+#: inc/section-pro/customizer.php:83
+msgid "Escape Room Game Live Demo"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:340
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:341
+msgid "Install Plugins"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:343
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:345
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:346
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:348
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:354
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:360
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:366
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:372
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:378
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:383
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:388
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:393
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:398
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:399
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:400
+#: inc/tgm/class-tgm-plugin-activation.php:3311
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:401
+#: inc/tgm/class-tgm-plugin-activation.php:3103
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:403
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:405
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: inc/tgm/class-tgm-plugin-activation.php:407
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:408
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:409
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:410
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:616
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:617
+msgid "Update Required"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:735
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:1042
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:1042
+#: inc/tgm/class-tgm-plugin-activation.php:1052
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:1052
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:1243
+#: inc/tgm/class-tgm-plugin-activation.php:3099
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: inc/tgm/class-tgm-plugin-activation.php:2112
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2421
+msgid "Required"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2424
+msgid "Recommended"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2440
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2443
+msgid "External Source"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2446
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2463
+msgid "Not Installed"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2467
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2469
+msgid "Active"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2475
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2478
+msgid "Requires Update"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2481
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: inc/tgm/class-tgm-plugin-activation.php:2490
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2536
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2540
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2544
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2548
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2630
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2638
+msgid "Installed version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2646
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2658
+msgid "Available version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2681
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2695
+msgid "Plugin"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2696
+msgid "Source"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2697
+msgid "Type"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2702
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2751
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2756
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2762
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2834
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2867
+msgid "Install"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2873
+msgid "Update"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2876
+msgid "Activate"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2907
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2909
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2950
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2952
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3059
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3085
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3310
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3655
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: inc/tgm/class-tgm-plugin-activation.php:3658
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3660
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3664
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3666
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3667
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3669
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3672
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3674
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3675
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3677
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3682
+msgid "Show Details"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3682
+msgid "Hide Details"
+msgstr ""
+
+#: inc/tgm/plugin-activation.php:62
+msgid "Ibtana - WordPress Website Builder"
+msgstr ""
+
+#: patterns/about-us-section.php
+msgctxt "Pattern title"
+msgid "About Us Section"
+msgstr ""
+
+#: patterns/about-us-section.php:24
+msgid "about the final clue"
+msgstr ""
+
+#: patterns/about-us-section.php:28
+msgid "unlock thrilling adventures with immersive escape room experiences."
+msgstr ""
+
+#: patterns/about-us-section.php:32
+#: patterns/about-us-section.php:46
+#: patterns/about-us-section.php:60
+#: patterns/faq-section.php:24
+#: patterns/news-section.php:24
+#: patterns/testimonial-section.php:20
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nisi elit, consequat pharetra elementum nec, eleifend non turpis."
+msgstr ""
+
+#: patterns/about-us-section.php:42
+msgid "Guaranteed Satisfaction"
+msgstr ""
+
+#: patterns/about-us-section.php:56
+msgid "Customer Rating 4.9"
+msgstr ""
+
+#: patterns/comment-section-1.php
+msgctxt "Pattern title"
+msgid "Comment Section 1"
+msgstr ""
+
+#: patterns/cover-with-archive-title.php
+msgctxt "Pattern title"
+msgid "Cover With Archive Title"
+msgstr ""
+
+#: patterns/cover-with-index-title.php
+msgctxt "Pattern title"
+msgid "Cover With Index Title"
+msgstr ""
+
+#: patterns/cover-with-post-title.php
+msgctxt "Pattern title"
+msgid "Cover With Post Title"
+msgstr ""
+
+#: patterns/cover-with-search-title.php
+msgctxt "Pattern title"
+msgid "Cover With Search Title"
+msgstr ""
+
+#: patterns/experience-section.php
+msgctxt "Pattern title"
+msgid "Experience Section"
+msgstr ""
+
+#: patterns/experience-section.php:12
+msgid "escape "
+msgstr ""
+
+#: patterns/experience-section.php:12
+msgid "rooms"
+msgstr ""
+
+#: patterns/experience-section.php:16
+msgid "Unlock adventures through immersive, mind-bending escape experiences."
+msgstr ""
+
+#: patterns/faq-section.php
+msgctxt "Pattern title"
+msgid "FAQ's Section"
+msgstr ""
+
+#: patterns/faq-section.php:16
+msgid "FAQ"
+msgstr ""
+
+#: patterns/faq-section.php:20
+msgid "have any questions for us?"
+msgstr ""
+
+#: patterns/faq-section.php:36
+msgid "how long does each game last?"
+msgstr ""
+
+#: patterns/faq-section.php:37
+#: patterns/faq-section.php:43
+#: patterns/faq-section.php:49
+#: patterns/faq-section.php:55
+#: patterns/faq-section.php:63
+#: patterns/faq-section.php:69
+#: patterns/faq-section.php:75
+#: patterns/faq-section.php:81
+msgid "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since."
+msgstr ""
+
+#: patterns/faq-section.php:42
+msgid "how many players can join a room?"
+msgstr ""
+
+#: patterns/faq-section.php:48
+msgid "are the escape rooms scary?"
+msgstr ""
+
+#: patterns/faq-section.php:54
+msgid "what happens if we don't escape in time?"
+msgstr ""
+
+#: patterns/faq-section.php:62
+msgid "do we need to book in advance?"
+msgstr ""
+
+#: patterns/faq-section.php:68
+msgid "how we need to book in advance?"
+msgstr ""
+
+#: patterns/faq-section.php:74
+msgid "is it suitable for kids?"
+msgstr ""
+
+#: patterns/faq-section.php:80
+msgid "what should we wear?"
+msgstr ""
+
+#: patterns/feature-post-column.php
+msgctxt "Pattern title"
+msgid "Feature Post Column"
+msgstr ""
+
+#: patterns/feature-post-column.php:46
+msgid "Popular News"
+msgstr ""
+
+#: patterns/feature-post-column.php:101
+msgid ""
+"Life Is Either A Daring Adventure Or Nothing At\n"
+"\t\t\t\t\t\t\tAll"
+msgstr ""
+
+#: patterns/feature-post-column.php:151
+msgid "Recent News"
+msgstr ""
+
+#: patterns/footer-default.php
+msgctxt "Pattern title"
+msgid "Footer Default"
+msgstr ""
+
+#: patterns/footer-default.php:15
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique justo et justo fringilla mattis. Quisque ullamcorper ligula ac justo faucibus, at pellentesque nunc tincidunt. Proin rutrum viverra mauris, id finibus metus vestibulum in. Etiam vel arcu nisi."
+msgstr ""
+
+#: patterns/footer-default.php:31
+msgid "Quick Links"
+msgstr ""
+
+#: patterns/footer-default.php:36
+msgid "Home"
+msgstr ""
+
+#: patterns/footer-default.php:40
+msgid "About Us"
+msgstr ""
+
+#: patterns/footer-default.php:44
+msgid "Services"
+msgstr ""
+
+#: patterns/footer-default.php:48
+msgid "Voice Samples"
+msgstr ""
+
+#: patterns/footer-default.php:52
+msgid "Pricing Plans"
+msgstr ""
+
+#: patterns/footer-default.php:56
+msgid "Request a Quote"
+msgstr ""
+
+#: patterns/footer-default.php:60
+msgid "Contact Us"
+msgstr ""
+
+#: patterns/footer-default.php:64
+msgid "FAQs"
+msgstr ""
+
+#: patterns/footer-default.php:71
+msgid "legal & policies"
+msgstr ""
+
+#: patterns/footer-default.php:76
+msgid "Terms & Conditions"
+msgstr ""
+
+#: patterns/footer-default.php:80
+msgid "Privacy Policy"
+msgstr ""
+
+#: patterns/footer-default.php:84
+msgid "Cancellation & Refund Policy"
+msgstr ""
+
+#: patterns/footer-default.php:88
+msgid "Cookie Policy"
+msgstr ""
+
+#: patterns/footer-default.php:92
+msgid "Accessibility Statement"
+msgstr ""
+
+#: patterns/footer-default.php:99
+msgid "Need Help?"
+msgstr ""
+
+#: patterns/footer-default.php:108
+msgid "+123456789123"
+msgstr ""
+
+#: patterns/footer-default.php:113
+msgid "Monday To Saturday : 09.00AM - 08.00PM"
+msgstr ""
+
+#: patterns/footer-default.php:117
+msgid "Sunday Closed"
+msgstr ""
+
+#: patterns/footer-default.php:126
+msgid "xyz123@example.com"
+msgstr ""
+
+#: patterns/footer-default.php:135
+msgid "Escape Room Theme"
+msgstr ""
+
+#: patterns/footer-default.php:135
+msgid "By VWThemes"
+msgstr ""
+
+#: patterns/header-default.php
+msgctxt "Pattern title"
+msgid "Header Default"
+msgstr ""
+
+#: patterns/hidden-404.php
+msgctxt "Pattern title"
+msgid "Hidden 404"
+msgstr ""
+
+#: patterns/hidden-404.php:13
+msgid "Page Not Found"
+msgstr ""
+
+#: patterns/hidden-404.php:17
+msgid "This page could not be found. Maybe try a search?"
+msgstr ""
+
+#: patterns/home-banner.php
+msgctxt "Pattern title"
+msgid "Home Banner"
+msgstr ""
+
+#: patterns/home-banner.php:18
+msgid "unlock the mystery within now"
+msgstr ""
+
+#: patterns/home-banner.php:22
+msgid "Step into a world of mystery, clues, and thrilling challenges. Work as a team, race against the clock, and escape before time runs out. Are you ready to unlock the adventure that awaits you?"
+msgstr ""
+
+#: patterns/home-banner.php:27
+msgid "explore the rooms"
+msgstr ""
+
+#: patterns/home-banner.php:35
+msgid "The Forgotten Asylum"
+msgstr ""
+
+#: patterns/home-banner.php:41
+msgid "The Pharaoh's Curse"
+msgstr ""
+
+#: patterns/home-banner.php:47
+msgid "Ravenwood Manor"
+msgstr ""
+
+#: patterns/news-section.php
+msgctxt "Pattern title"
+msgid "News Section"
+msgstr ""
+
+#: patterns/news-section.php:16
+msgid "news & blogs"
+msgstr ""
+
+#: patterns/news-section.php:20
+msgid "blog over tips"
+msgstr ""
+
+#: patterns/post-content-1.php
+msgctxt "Pattern title"
+msgid "Post Content 1"
+msgstr ""
+
+#: patterns/post-listing-four-column.php
+msgctxt "Pattern title"
+msgid "Post Listing Four Column"
+msgstr ""
+
+#: patterns/post-listing-single-column.php
+msgctxt "Pattern title"
+msgid "Post Listing Single Column"
+msgstr ""
+
+#: patterns/post-listing-three-column.php
+msgctxt "Pattern title"
+msgid "Post Listing Three Column"
+msgstr ""
+
+#: patterns/post-listing-two-column.php
+msgctxt "Pattern title"
+msgid "Post Listing Two Column"
+msgstr ""
+
+#: patterns/primary-sidebar.php
+#: patterns/search.php
+msgctxt "Pattern title"
+msgid "Primary Sidebar"
+msgstr ""
+
+#: patterns/primary-sidebar.php:12
+msgid "Search"
+msgstr ""
+
+#: patterns/primary-sidebar.php:20
+msgid "Archive"
+msgstr ""
+
+#: patterns/primary-sidebar.php:36
+msgid "Tags"
+msgstr ""
+
+#: patterns/primary-sidebar.php:44
+#: patterns/product-sidebar.php:21
+msgid "Categories"
+msgstr ""
+
+#: patterns/primary-sidebar.php:52
+msgid "Recent Posts"
+msgstr ""
+
+#: patterns/primary-sidebar.php:60
+msgid "Social Media"
+msgstr ""
+
+#: patterns/product-sidebar.php
+msgctxt "Pattern title"
+msgid "Product Sidebar"
+msgstr ""
+
+#: patterns/product-sidebar.php:11
+msgid "Filter by price"
+msgstr ""
+
+#: patterns/product-sidebar.php:29
+msgid "Active filters"
+msgstr ""
+
+#: patterns/product-sidebar.php:39
+msgid "Filter by stock status"
+msgstr ""
+
+#: patterns/product-sidebar.php:49
+msgid "Filter by attribute"
+msgstr ""
+
+#: patterns/product-sidebar.php:59
+msgid "Filter by rating"
+msgstr ""
+
+#: patterns/search.php:43
+msgid " No results found"
+msgstr ""
+
+#: patterns/search.php:47
+msgid " We could not find any posts matching your search. Try different keywords"
+msgstr ""
+
+#: patterns/shop-title-cover.php
+msgctxt "Pattern title"
+msgid "Shop Title Cover"
+msgstr ""
+
+#: patterns/shop-title-cover.php:11
+msgid "Shop"
+msgstr ""
+
+#: patterns/testimonial-section.php
+msgctxt "Pattern title"
+msgid "Testimonial Section"
+msgstr ""
+
+#: patterns/testimonial-section.php:16
+msgid "Testimonial"
+msgstr ""
+
+#: patterns/testimonial-section.php:33
+#: patterns/testimonial-section.php:53
+#: patterns/testimonial-section.php:73
+#: patterns/testimonial-section.php:93
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lobortis laoreet ante, ut rutrum felis tincidunt vel. Proin tellus magna."
+msgstr ""
+
+#: patterns/testimonial-section.php:37
+msgid "ruth polina"
+msgstr ""
+
+#: patterns/testimonial-section.php:41
+msgid "Setup Maker"
+msgstr ""
+
+#: patterns/testimonial-section.php:57
+msgid "john wick"
+msgstr ""
+
+#: patterns/testimonial-section.php:61
+msgid "retail specialist"
+msgstr ""
+
+#: patterns/testimonial-section.php:77
+msgid "sophia james"
+msgstr ""
+
+#: patterns/testimonial-section.php:81
+msgid "studio executive"
+msgstr ""
+
+#: patterns/testimonial-section.php:97
+msgid "Liam Alexander"
+msgstr ""
+
+#: patterns/testimonial-section.php:101
+msgid "Business Analyst"
+msgstr ""
+
+#: patterns/theme-button.php
+msgctxt "Pattern title"
+msgid "Theme Button"
+msgstr ""
+
+#: patterns/theme-button.php:10
+msgid "READ MORE"
+msgstr ""
+
+#: styles/bluish-green.json
+msgctxt "Style variation name"
+msgid "Bluish Green"
+msgstr ""
+
+#: styles/bluish-green.json
+#: styles/dark-blue.json
+#: styles/dark-greenish.json
+#: styles/dark-orange.json
+#: styles/dark-purple.json
+#: styles/DarkSlate-blue.json
+#: styles/ deep-purple.json
+#: styles/deep-red.json
+#: styles/light-blue.json
+#: styles/light-brown.json
+#: styles/light-pink.json
+#: styles/warm-green.json
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: styles/bluish-green.json
+#: styles/dark-blue.json
+#: styles/dark-greenish.json
+#: styles/dark-orange.json
+#: styles/dark-purple.json
+#: styles/DarkSlate-blue.json
+#: styles/ deep-purple.json
+#: styles/deep-red.json
+#: styles/light-blue.json
+#: styles/light-brown.json
+#: styles/light-pink.json
+#: styles/warm-green.json
+#: theme.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: styles/bluish-green.json
+#: styles/dark-blue.json
+#: styles/dark-greenish.json
+#: styles/dark-orange.json
+#: styles/dark-purple.json
+#: styles/DarkSlate-blue.json
+#: styles/ deep-purple.json
+#: styles/deep-red.json
+#: styles/light-blue.json
+#: styles/light-brown.json
+#: styles/light-pink.json
+#: styles/warm-green.json
+#: theme.json
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr ""
+
+#: styles/bluish-green.json
+#: styles/dark-blue.json
+#: styles/dark-greenish.json
+#: styles/dark-orange.json
+#: styles/dark-purple.json
+#: styles/DarkSlate-blue.json
+#: styles/ deep-purple.json
+#: styles/deep-red.json
+#: styles/light-blue.json
+#: styles/light-brown.json
+#: styles/light-pink.json
+#: styles/warm-green.json
+#: theme.json
+msgctxt "Color name"
+msgid "Heading"
+msgstr ""
+
+#: styles/bluish-green.json
+#: styles/dark-blue.json
+#: styles/dark-greenish.json
+#: styles/dark-orange.json
+#: styles/dark-purple.json
+#: styles/DarkSlate-blue.json
+#: styles/ deep-purple.json
+#: styles/deep-red.json
+#: styles/light-blue.json
+#: styles/light-brown.json
+#: styles/light-pink.json
+#: styles/warm-green.json
+#: theme.json
+msgctxt "Color name"
+msgid "Foreground"
+msgstr ""
+
+#: styles/bluish-green.json
+#: styles/dark-blue.json
+#: styles/dark-greenish.json
+#: styles/dark-orange.json
+#: styles/dark-purple.json
+#: styles/DarkSlate-blue.json
+#: styles/ deep-purple.json
+#: styles/deep-red.json
+#: styles/light-blue.json
+#: styles/light-brown.json
+#: styles/light-pink.json
+#: styles/warm-green.json
+#: theme.json
+msgctxt "Color name"
+msgid "Background"
+msgstr ""
+
+#: styles/dark-blue.json
+msgctxt "Style variation name"
+msgid "Dark-blue"
+msgstr ""
+
+#: styles/dark-greenish.json
+msgctxt "Style variation name"
+msgid "Dark Greenish"
+msgstr ""
+
+#: styles/dark-orange.json
+msgctxt "Style variation name"
+msgid "Dark Orange"
+msgstr ""
+
+#: styles/dark-purple.json
+msgctxt "Style variation name"
+msgid "Dark Purple"
+msgstr ""
+
+#: styles/DarkSlate-blue.json
+msgctxt "Style variation name"
+msgid "DarkSlate-blue"
+msgstr ""
+
+#: styles/ deep-purple.json
+msgctxt "Style variation name"
+msgid "deep-purple"
+msgstr ""
+
+#: styles/deep-red.json
+msgctxt "Style variation name"
+msgid "Deep Red"
+msgstr ""
+
+#: styles/light-blue.json
+msgctxt "Style variation name"
+msgid "Light Blue"
+msgstr ""
+
+#: styles/light-brown.json
+msgctxt "Style variation name"
+msgid "Light Brown"
+msgstr ""
+
+#: styles/light-pink.json
+msgctxt "Style variation name"
+msgid "Light Pink"
+msgstr ""
+
+#: styles/warm-green.json
+msgctxt "Style variation name"
+msgid "Warm-green"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Blank"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page (No Title / Feature Image)"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Blog Page (Sidebar on Left)"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Blog Page (Sidebar on Right)"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Single Page (Sidebar on Right)"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Single Page (Sidebar on Left)"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Single Post (Sidebar on Right)"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Single Post (Sidebar on Left)"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Single Post (With no sidebar)"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Sidebar"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Foreground and background"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Foreground and secondary"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Foreground and tertiary"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Primary and background"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Primary and secondary"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Primary and tertiary"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Button Color"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical secondary to tertiary"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical secondary to background"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical background to secondary"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Secondary background to Secondary dark background"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Secondary background dark to Secondary  background"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal primary to foreground"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal secondary to background"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal secondary to background left"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal secondary to background right"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal background to secondary"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal tertiary to background"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Diagonal background to tertiary"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "1"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "2"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "3"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "4"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "5"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "6"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "7"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Bad Script"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Montserrat"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Syne"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Raleway"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Tiny"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Upper Heading"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Normal"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Content Heading"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra large (Recent Post Title)"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge (Display)"
+msgstr ""
