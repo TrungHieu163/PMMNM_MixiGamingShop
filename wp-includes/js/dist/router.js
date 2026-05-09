@@ -744,14 +744,22 @@ function extends_extends() {
 ;// ./node_modules/history/index.js
 
 
+<<<<<<< HEAD
 /**
  * Actions represent the type of change to a location value.
  *
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#action
+=======
+/**
+ * Actions represent the type of change to a location value.
+ *
+ * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#action
+>>>>>>> origin/main
  */
 var Action;
 
 (function (Action) {
+<<<<<<< HEAD
   /**
    * A POP indicates a change to an arbitrary index in the history stack, such
    * as a back or forward navigation. It does not describe the direction of the
@@ -770,6 +778,26 @@ var Action;
   /**
    * A REPLACE indicates the entry at the current index in the history stack
    * being replaced by a new one.
+=======
+  /**
+   * A POP indicates a change to an arbitrary index in the history stack, such
+   * as a back or forward navigation. It does not describe the direction of the
+   * navigation, only that the current index changed.
+   *
+   * Note: This is the default action for newly created history objects.
+   */
+  Action["Pop"] = "POP";
+  /**
+   * A PUSH indicates a new entry being added to the history stack, such as when
+   * a link is clicked and a new page loads. When this happens, all subsequent
+   * entries in the stack are lost.
+   */
+
+  Action["Push"] = "PUSH";
+  /**
+   * A REPLACE indicates the entry at the current index in the history stack
+   * being replaced by a new one.
+>>>>>>> origin/main
    */
 
   Action["Replace"] = "REPLACE";
@@ -798,12 +826,21 @@ function warning(cond, message) {
 var BeforeUnloadEventType = 'beforeunload';
 var HashChangeEventType = 'hashchange';
 var PopStateEventType = 'popstate';
+<<<<<<< HEAD
 /**
  * Browser history stores the location in regular URLs. This is the standard for
  * most web apps, but it requires some configuration on the server to ensure you
  * serve the same app at multiple URLs.
  *
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#createbrowserhistory
+=======
+/**
+ * Browser history stores the location in regular URLs. This is the standard for
+ * most web apps, but it requires some configuration on the server to ensure you
+ * serve the same app at multiple URLs.
+ *
+ * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#createbrowserhistory
+>>>>>>> origin/main
  */
 
 function createBrowserHistory(options) {
@@ -1028,6 +1065,7 @@ function createBrowserHistory(options) {
   };
   return history;
 }
+<<<<<<< HEAD
 /**
  * Hash history stores the location in window.location.hash. This makes it ideal
  * for situations where you don't want to send the location to the server for
@@ -1035,6 +1073,15 @@ function createBrowserHistory(options) {
  * reserved for something else.
  *
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#createhashhistory
+=======
+/**
+ * Hash history stores the location in window.location.hash. This makes it ideal
+ * for situations where you don't want to send the location to the server for
+ * some reason, either because you do cannot configure it or the URL space is
+ * reserved for something else.
+ *
+ * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#createhashhistory
+>>>>>>> origin/main
  */
 
 function createHashHistory(options) {
@@ -1290,11 +1337,19 @@ function createHashHistory(options) {
   };
   return history;
 }
+<<<<<<< HEAD
 /**
  * Memory history stores the current location in memory. It is designed for use
  * in stateful non-browser environments like tests and React Native.
  *
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#creatememoryhistory
+=======
+/**
+ * Memory history stores the current location in memory. It is designed for use
+ * in stateful non-browser environments like tests and React Native.
+ *
+ * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#creatememoryhistory
+>>>>>>> origin/main
  */
 
 function createMemoryHistory(options) {
@@ -1479,10 +1534,17 @@ function createEvents() {
 function createKey() {
   return Math.random().toString(36).substr(2, 8);
 }
+<<<<<<< HEAD
 /**
  * Creates a string URL path from the given pathname, search, and hash components.
  *
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#createpath
+=======
+/**
+ * Creates a string URL path from the given pathname, search, and hash components.
+ *
+ * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#createpath
+>>>>>>> origin/main
  */
 
 
@@ -1497,10 +1559,17 @@ function createPath(_ref) {
   if (hash && hash !== '#') pathname += hash.charAt(0) === '#' ? hash : '#' + hash;
   return pathname;
 }
+<<<<<<< HEAD
 /**
  * Parses a string URL path into its separate pathname, search, and hash components.
  *
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#parsepath
+=======
+/**
+ * Parses a string URL path into its separate pathname, search, and hash components.
+ *
+ * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#parsepath
+>>>>>>> origin/main
  */
 
 function parsePath(path) {
