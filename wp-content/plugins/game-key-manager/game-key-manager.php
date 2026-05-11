@@ -1,17 +1,16 @@
 <?php
 /*
-Plugin Name: MixiGaming Game Key Manager - Final Version
-Description: Quản lý Key Game chuyên nghiệp - Fix lỗi vỡ giao diện trên Theme 2025.
-Version: 6.5
+Plugin Name: MixiGaming Game Key Manager
+Description: Quản lý game key
+Version: 4.8
 Author: Phuc
 */
 
 if (!defined('ABSPATH')) exit;
 
 // =========================================================================
-// PHẦN 1: ADMIN - Ô NHẬP KEY TRONG SẢN PHẨM (GIỮ NGUYÊN CẤU TRÚC CŨ)
+// PHẦN 1: QUẢN LÝ KEY TRONG ADMIN (GIỮ NGUYÊN)
 // =========================================================================
-
 add_action('add_meta_boxes', 'gkm_add_keys_metabox');
 function gkm_add_keys_metabox() {
     add_meta_box('gkm_keys_box', 'Danh sách Key Game (Mỗi dòng 1 key)', 'gkm_render_keys_box', 'product', 'normal', 'high');
@@ -20,7 +19,6 @@ function gkm_add_keys_metabox() {
 function gkm_render_keys_box($post) {
     $keys = get_post_meta($post->ID, '_game_keys_pool', true);
     echo '<textarea name="gkm_keys_list" rows="10" style="width:100%; font-family: monospace; border-radius: 8px; padding: 10px;">' . esc_textarea($keys) . '</textarea>';
-    echo '<p><i>Hệ thống sẽ lấy dòng đầu tiên để cấp cho khách khi thanh toán xong.</i></p>';
 }
 
 add_action('save_post_product', 'gkm_save_keys');
@@ -31,187 +29,194 @@ function gkm_save_keys($post_id) {
 }
 
 // =========================================================================
-// PHẦN 2: LOGIC CẤP KEY KHI THANH TOÁN THÀNH CÔNG (GIỮ NGUYÊN LOGIC CŨ)
+// PHẦN 2: TỰ ĐỘNG CẤP KEY KHI ĐƠN HÀNG HOÀN THÀNH (GIỮ NGUYÊN)
 // =========================================================================
-
 add_action('woocommerce_order_status_completed', 'gkm_grant_key_to_customer', 10, 1);
 function gkm_grant_key_to_customer($order_id) {
     $order = wc_get_order($order_id);
-    $items = $order->get_items();
-
-    foreach ($items as $item_id => $item) {
+    foreach ($order->get_items() as $item) {
         if (!is_a($item, 'WC_Order_Item_Product')) continue;
         if ($item->get_meta('_purchased_game_key')) continue;
 
         $product_id = $item->get_product_id();
         $keys_string = get_post_meta($product_id, '_game_keys_pool', true);
-        
         if (!empty($keys_string)) {
-            $keys_array = explode("\n", str_replace("\r", "", $keys_string));
-            $keys_array = array_filter(array_map('trim', $keys_array));
-
+            $keys_array = array_filter(array_map('trim', explode("\n", str_replace("\r", "", $keys_string))));
             if (!empty($keys_array)) {
                 $granted_key = array_shift($keys_array);
                 update_post_meta($product_id, '_game_keys_pool', implode("\n", $keys_array));
                 $item->update_meta_data('_purchased_game_key', $granted_key);
                 $item->save();
-                $order->add_order_note("Hệ thống: Đã cấp Key cho " . $item->get_name() . ": " . $granted_key);
             }
         }
     }
 }
 
 // =========================================================================
-// PHẦN 3: HIỂN THỊ THƯ VIỆN GAME (ĐÃ FIX ĐỂ KHÔNG BỊ THEME 2025 PHÁ)
+// PHẦN 3: HIỂN THỊ THƯ VIỆN GAME (CHỈ SỬA HIỂN THỊ NGANG)
 // =========================================================================
-
 add_shortcode('my_game_library', 'gkm_display_user_library');
-
 function gkm_display_user_library() {
-    if (!is_user_logged_in()) {
-        return '<p style="text-align:center; padding:50px; color:#666;">Vui lòng đăng nhập để truy cập kho game.</p>';
-    }
+    if (!is_user_logged_in()) return '<p style="text-align:center; padding:50px;">Vui lòng đăng nhập.</p>';
 
     $current_user = wp_get_current_user();
-    $customer_orders = wc_get_orders(array(
-        'customer' => $current_user->ID,
-        'status'   => 'completed',
-    ));
-
+    $customer_orders = wc_get_orders(array('customer' => $current_user->ID, 'status' => 'completed'));
     $library = [];
+
     foreach ($customer_orders as $order) {
         foreach ($order->get_items() as $item) {
-            if (!is_a($item, 'WC_Order_Item_Product')) continue;
-            $product_id = $item->get_product_id();
             $key = $item->get_meta('_purchased_game_key');
-            
             if ($key) {
-                $library[$product_id]['keys'][] = $key;
-                if (!isset($library[$product_id]['name'])) {
-                    $library[$product_id]['name'] = $item->get_name();
+                $p_id = $item->get_product_id();
+                $library[$p_id]['keys'][] = $key;
+                if (!isset($library[$p_id]['name'])) {
+                    $library[$p_id]['name'] = $item->get_name();
                     $product = $item->get_product();
-                    $library[$product_id]['image'] = $product ? get_the_post_thumbnail_url($product_id, 'large') : wc_placeholder_img_src();
+                    $library[$p_id]['image'] = $product ? get_the_post_thumbnail_url($p_id, 'large') : wc_placeholder_img_src();
                 }
             }
         }
     }
 
-    if (empty($library)) {
-        return '<p style="text-align:center; padding:50px; color:#888;">Bạn chưa có game nào trong thư viện.</p>';
-    }
+    if (empty($library)) return '<p style="text-align:center; padding:50px;">Thư viện trống.</p>';
 
-    // CSS FIX TRIỆT ĐỂ CHO THEME 2025
     $output = '<style>
-        .gkm-outer-container { clear: both; width: 100%; margin: 20px 0; }
-        .gkm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-        .gkm-item { cursor: pointer; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid #333; position: relative; transition: 0.3s; }
-        .gkm-item:hover { transform: scale(1.02); border-color: #007bff; }
-        .gkm-item img { width: 100%; height: 280px; object-fit: cover; display: block; }
-        .gkm-item-name { padding: 10px; color: #fff; text-align: center; font-weight: bold; background: rgba(0,0,0,0.8); position: absolute; bottom: 0; width: 100%; font-size: 14px; }
-        
-        /* OVERLAY - FIX CỨNG VÀO MÀN HÌNH */
-        #gkmFullOverlay { 
-            display: none; 
-            position: fixed !important; 
-            top: 0 !important; left: 0 !important; 
-            width: 100vw !important; height: 100vh !important; 
-            background: rgba(0,0,0,0.96) !important; 
-            z-index: 9999999 !important; 
-            align-items: center; justify-content: center; 
-            backdrop-filter: blur(8px);
-            margin: 0 !important; padding: 0 !important;
+        /* Chuyển Grid thành Flex để hiển thị ngang */
+        .gkm-grid { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            max-width: 1000px; 
+            margin: 0 auto; 
         }
 
-        /* BOX NỘI DUNG - GIỮ NGUYÊN TỶ LỆ NHƯ MẪU CŨ */
-        .gkm-main-box { 
-            background: #181818 !important; 
-            width: 880px; 
-            max-width: 95%; 
-            height: 520px; 
-            display: flex !important; 
-            border-radius: 15px; 
+        /* Item dạng hàng ngang */
+        .gkm-item { 
+            display: flex; 
+            align-items: center; 
+            cursor: pointer; 
+            border-radius: 12px; 
             overflow: hidden; 
-            border: 1px solid #333;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            position: relative;
+            background: #1a1a1a; 
+            border: 1px solid #333; 
+            transition: 0.3s;
+            height: 100px; /* Chiều cao cố định cho hàng */
+        }
+        .gkm-item:hover { border-color: #007bff; background: #222; transform: translateX(5px); }
+
+        /* Ảnh thu nhỏ bên trái */
+        .gkm-item img { 
+            width: 150px; 
+            height: 100%; 
+            object-fit: cover; 
+            border-right: 1px solid #333;
         }
 
-        .gkm-box-left { width: 45%; height: 100%; background: #000; }
-        .gkm-box-left img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .gkm-box-right { width: 55%; padding: 40px; color: #fff !important; overflow-y: auto; text-align: left; }
-        .gkm-btn-close { position: absolute; top: 15px; right: 20px; font-size: 35px; cursor: pointer; color: #666; transition: 0.2s; line-height: 1; }
-        .gkm-btn-close:hover { color: #fff; }
+        /* Tên game bên phải ảnh */
+        .gkm-item-name { 
+            padding: 0 20px; 
+            color: #fff; 
+            font-size: 18px; 
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: left;
+        }
 
-        .gkm-key-card { background: #222; padding: 15px; border-radius: 10px; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #333; }
-        .gkm-key-value { color: #00ffcc; font-family: monospace; font-weight: bold; font-size: 16px; }
-        .gkm-copy-action { background: #007bff; color: #fff; border: 0; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-size: 13px; }
+        /* GIỮ NGUYÊN OVERLAY CỦA BẠN - KHÔNG SỬA */
+        .gkm-modal { 
+            display: none; position: fixed; z-index: 99999999 !important; left: 0; top: 0; 
+            width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.75); 
+            align-items: center; justify-content: center; backdrop-filter: blur(5px);
+        }
+        .gkm-modal-content { 
+            background: #181818; width: 90%; max-width: 950px; display: flex; 
+            border-radius: 20px; overflow: hidden; position: relative; color: #fff; 
+            border: 1px solid #333; box-shadow: 0 0 40px rgba(0,0,0,0.6);
+        }
+        .gkm-modal-left { width: 45%; border-right: 1px solid #333; }
+        .gkm-modal-left img { width: 100%; height: 100%; object-fit: cover; }
+        .gkm-modal-right { width: 55%; padding: 35px; overflow-y: auto; }
+        .gkm-close { position: absolute; top: 15px; right: 20px; font-size: 35px; cursor: pointer; color: #aaa; z-index: 9999; line-height: 1; }
+        .gkm-close:hover { color: #fff; }
+        #mTitle { color: #fff !important; } /* Đảm bảo không bị đen */
+        .gkm-qty-badge { background: #007bff; color: #fff; padding: 3px 12px; border-radius: 20px; font-weight: bold; margin-left: 5px; }
+        .gkm-key-list { margin-top: 20px; }
+        .gkm-key-card { background: #222; padding: 15px; border-radius: 10px; border: 1px solid #333; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .gkm-key-val { color: #00ffcc; font-family: monospace; font-size: 16px; font-weight: bold; }
+        .gkm-copy-icon { cursor: pointer; color: #888; transition: 0.2s; }
+        .gkm-copy-icon:hover { color: #fff; transform: scale(1.1); }
 
-        @media (max-width: 850px) {
-            .gkm-main-box { flex-direction: column; height: auto; max-height: 90vh; }
-            .gkm-box-left { width: 100%; height: 200px; }
-            .gkm-box-right { width: 100%; padding: 20px; }
+        @media (max-width: 768px) {
+            .gkm-item { height: 80px; }
+            .gkm-item img { width: 100px; }
+            .gkm-item-name { font-size: 15px; }
+            .gkm-modal-content { flex-direction: column; height: 95vh; }
+            .gkm-modal-left, .gkm-modal-right { width: 100%; }
+            .gkm-modal-left { height: 35%; }
         }
     </style>';
 
-    $output .= '<div class="gkm-outer-container"><div class="gkm-grid">';
+    $output .= '<div class="gkm-grid">';
     foreach ($library as $id => $data) {
-        $key_json = json_encode($data['keys']);
+        $keys_json = json_encode($data['keys']);
         $output .= "
-        <div class='gkm-item' onclick='openGkmPopup(\"{$data['name']}\", \"{$data['image']}\", {$key_json})'>
+        <div class='gkm-item' onclick='openGkmModal(\"{$data['name']}\", \"{$data['image']}\", {$keys_json})'>
             <img src='{$data['image']}'>
             <div class='gkm-item-name'>{$data['name']}</div>
+            <div style='padding-right:20px; color:#00ff00; font-size:12px; font-weight:bold;'>CLICK XEM KEY</div>
         </div>";
     }
-    $output .= '</div></div>';
+    $output .= '</div>';
 
-    // Cấu trúc Modal chuẩn
+    // GIỮ NGUYÊN PHẦN HTML MODAL VÀ SCRIPT
     $output .= '
-    <div id="gkmFullOverlay" onclick="closeIfOutside(event)">
-        <div class="gkm-main-box">
-            <span class="gkm-btn-close" onclick="closeGkmPopup()">&times;</span>
-            <div class="gkm-box-left"><img id="gkmPopupImg" src=""></div>
-            <div class="gkm-box-right">
-                <h2 id="gkmPopupTitle" style="margin:0 0 10px 0; color:#fff !important; font-size: 26px;"></h2>
-                <p id="gkmPopupQty" style="color:#888 !important; margin-bottom: 25px;"></p>
-                <div id="gkmPopupKeyList"></div>
+    <div id="gkmModal" class="gkm-modal">
+        <div class="gkm-modal-content">
+            <span class="gkm-close" id="gkmCloseBtn">&times;</span>
+            <div class="gkm-modal-left"><img id="mImg" src=""></div>
+            <div class="gkm-modal-right">
+                <h2 id="mTitle" style="margin:0;"></h2>
+                <div style="margin-top:10px; color:#aaa;">Trạng thái: <span style="color:#00ff00; font-weight:bold;">Đã sở hữu</span> | Số lượng: <span id="mQty" class="gkm-qty-badge"></span> key</div>
+                <hr style="border:0; border-top:1px solid #333; margin:20px 0;">
+                <div id="mKeys" class="gkm-key-list"></div>
             </div>
         </div>
     </div>';
 
     $output .= '
     <script>
-    function openGkmPopup(name, img, keys) {
-        document.getElementById("gkmPopupTitle").innerText = name;
-        document.getElementById("gkmPopupImg").src = img;
-        document.getElementById("gkmPopupQty").innerText = "Số lượng sở hữu: " + keys.length + " key game";
+    function openGkmModal(name, img, keys) {
+        const modal = document.getElementById("gkmModal");
+        if (modal.parentElement !== document.body) document.body.appendChild(modal);
+
+        document.getElementById("mTitle").innerText = name;
+        document.getElementById("mImg").src = img;
+        document.getElementById("mQty").innerText = keys.length;
         
-        let listHtml = "";
-        keys.forEach(key => {
-            listHtml += `
-                <div class="gkm-key-card">
-                    <span class="gkm-key-value">${key}</span>
-                    <button class="gkm-copy-action" onclick="copyToClip(\'${key}\')">Copy</button>
-                </div>`;
+        let html = "";
+        keys.forEach(k => {
+            html += `<div class="gkm-key-card">
+                <span class="gkm-key-val">${k}</span>
+                <span class="gkm-copy-icon" onclick="copyK(\'${k}\')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </span>
+            </div>`;
         });
-        document.getElementById("gkmPopupKeyList").innerHTML = listHtml;
-        document.getElementById("gkmFullOverlay").style.display = "flex";
-        document.body.style.overflow = "hidden"; 
+        document.getElementById("mKeys").innerHTML = html;
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
     }
 
-    function closeGkmPopup() { 
-        document.getElementById("gkmFullOverlay").style.display = "none"; 
-        document.body.style.overflow = "auto";
-    }
+    document.addEventListener("click", function(e) {
+        const modal = document.getElementById("gkmModal");
+        if (e.target.id === "gkmCloseBtn" || e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
 
-    function closeIfOutside(e) {
-        if (event.target.id === "gkmFullOverlay") closeGkmPopup();
-    }
-
-    function copyToClip(val) {
-        navigator.clipboard.writeText(val).then(() => {
-            alert("Đã copy key: " + val);
-        });
+    function copyK(v) {
+        navigator.clipboard.writeText(v).then(() => alert("Đã copy key!"));
     }
     </script>';
 

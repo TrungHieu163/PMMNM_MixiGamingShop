@@ -23,7 +23,7 @@ function init_payos_gateway_class() {
 
         public function __construct() {
             $this->id                 = 'payos_gateway';
-            $this->icon               = '';
+            $this->icon               = plugins_url('assets/logo.png', __FILE__);
             $this->has_fields         = false;
             $this->method_title       = 'payOS (Chuyển khoản QR)';
             $this->method_description = 'Thanh toán an toàn qua ngân hàng bằng mã QR của payOS.';
