@@ -63,10 +63,10 @@ function init_payos_gateway_class() {
             );
 
             // Tạo signature
-            // 1. Sắp xếp các tham số theo Alphabet (giữ nguyên)
+            // 1. Sắp xếp các tham số theo Alphabet
             ksort($body);
 
-            // 2. Tự nối chuỗi thô thủ công (KHÔNG dùng http_build_query)
+            // 2. Tự nối chuỗi thô thủ công
             $data_string = "";
             foreach ($body as $key => $value) {
                 $data_string .= ($data_string == "" ? "" : "&") . $key . "=" . $value;
@@ -107,7 +107,7 @@ function init_payos_gateway_class() {
 }
 
 // ======================
-// 2. WEBHOOK - Tối ưu cho payOS
+// 2. WEBHOOK
 // ======================
 add_action('rest_api_init', 'payos_register_webhook_route');
 
@@ -122,7 +122,7 @@ function payos_register_webhook_route() {
 function handle_payos_webhook_callback(WP_REST_Request $request) {
     $method = $request->get_method();
     
-    // 1. Nếu là GET (payOS kiểm tra link lúc lưu cài đặt)
+    // 1. Nếu là GET
     if ($method === 'GET') {
         return new WP_REST_Response(['status' => 'success', 'message' => 'Webhook is active'], 200);
     }

@@ -9,7 +9,7 @@ Author: Phuc
 if (!defined('ABSPATH')) exit;
 
 // =========================================================================
-// PHẦN 1: QUẢN LÝ KEY TRONG ADMIN (GIỮ NGUYÊN)
+// PHẦN 1: QUẢN LÝ KEY TRONG ADMIN
 // =========================================================================
 add_action('add_meta_boxes', 'gkm_add_keys_metabox');
 function gkm_add_keys_metabox() {
@@ -29,7 +29,7 @@ function gkm_save_keys($post_id) {
 }
 
 // =========================================================================
-// PHẦN 2: TỰ ĐỘNG CẤP KEY KHI ĐƠN HÀNG HOÀN THÀNH (GIỮ NGUYÊN)
+// PHẦN 2: TỰ ĐỘNG CẤP KEY KHI ĐƠN HÀNG HOÀN THÀNH
 // =========================================================================
 add_action('woocommerce_order_status_completed', 'gkm_grant_key_to_customer', 10, 1);
 function gkm_grant_key_to_customer($order_id) {
@@ -53,7 +53,7 @@ function gkm_grant_key_to_customer($order_id) {
 }
 
 // =========================================================================
-// PHẦN 3: HIỂN THỊ THƯ VIỆN GAME (CHỈ SỬA HIỂN THỊ NGANG)
+// PHẦN 3: HIỂN THỊ THƯ VIỆN GAME
 // =========================================================================
 add_shortcode('my_game_library', 'gkm_display_user_library');
 function gkm_display_user_library() {
@@ -168,7 +168,6 @@ function gkm_display_user_library() {
     }
     $output .= '</div>';
 
-    // GIỮ NGUYÊN PHẦN HTML MODAL VÀ SCRIPT
     $output .= '
     <div id="gkmModal" class="gkm-modal">
         <div class="gkm-modal-content">
