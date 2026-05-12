@@ -204,3 +204,130 @@ if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
 endif;
 
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
+
+// 1. Tạo Tab mới trong trang quản trị sản phẩm
+add_filter( 'woocommerce_product_data_tabs', 'hieu_game_specs_tab' );
+function hieu_game_specs_tab( $tabs ) {
+    $tabs['game_specs'] = array(
+        'label'    => __( 'Cấu hình Game', 'woocommerce' ),
+        'target'   => 'game_specs_data',
+        'class'    => array( 'show_if_simple', 'show_if_variable' ), // Hiện cho cả sản phẩm đơn giản và biến thể
+        'priority' => 50,
+    );
+    return $tabs;
+}
+
+// 2. Nội dung bên trong Tab mới
+add_action( 'woocommerce_product_data_panels', 'hieu_game_specs_panels' );
+function hieu_game_specs_panels() {
+    echo '<div id="game_specs_data" class="panel woocommerce_options_panel">';
+    echo '<div class="options_group">';
+    
+    // Ô nhập cấu hình tối thiểu
+    woocommerce_wp_textarea_input( array(
+        'id'          => '_game_spec_min',
+        'label'       => __( 'Cấu hình tối thiểu', 'woocommerce' ),
+        'placeholder' => 'Nhập OS, CPU, RAM tối thiểu...',
+        'style'       => 'width: 70%; height: 100px;',
+    ) );
+
+    // Ô nhập cấu hình khuyến nghị
+    woocommerce_wp_textarea_input( array(
+        'id'          => '_game_spec_rec',
+        'label'       => __( 'Cấu hình khuyến nghị', 'woocommerce' ),
+        'placeholder' => 'Nhập OS, CPU, RAM khuyến nghị...',
+        'style'       => 'width: 70%; height: 100px;',
+    ) );
+
+    echo '</div>';
+    echo '</div>';
+}
+
+// 3. Lưu dữ liệu khi nhấn Cập nhật sản phẩm
+add_action( 'woocommerce_process_product_meta', 'hieu_save_game_specs' );
+function hieu_save_game_specs( $post_id ) {
+    update_post_meta( $post_id, '_game_spec_min', isset( $_POST['_game_spec_min'] ) ? $_POST['_game_spec_min'] : '' );
+    update_post_meta( $post_id, '_game_spec_rec', isset( $_POST['_game_spec_rec'] ) ? $_POST['_game_spec_rec'] : '' );
+}
+
+// 4. Shortcode hiển thị [hien_thi_cau_hinh]
+add_shortcode( 'hien_thi_cau_hinh', 'hieu_display_specs_shortcode' );
+function hieu_display_specs_shortcode() {
+    global $product;
+    if ( ! $product ) return '';
+
+    $min = get_post_meta( $product->get_id(), '_game_spec_min', true );
+    $rec = get_post_meta( $product->get_id(), '_game_spec_rec', true );
+
+    // Chỉ để lại class, xóa sạch style cũ
+    $output = '<div class="game-specs-container">';
+
+    if ( $min ) {
+        $output .= '<div class="spec-column">';
+        $output .= '<h4>Cấu hình tối thiểu</h4>';
+        $output .= '<p>' . nl2br( esc_html( $min ) ) . '</p>';
+        $output .= '</div>';
+    }
+
+    if ( $rec ) {
+        $output .= '<div class="spec-column">';
+        $output .= '<h4>Cấu hình khuyến nghị</h4>';
+        $output .= '<p>' . nl2br( esc_html( $rec ) ) . '</p>';
+        $output .= '</div>';
+    }
+
+    $output .= '</div>';
+    return $output;
+}
+
+add_filter( 'wc_product_sku_enabled', 'hieu_remove_sku_from_product_page' );
+function hieu_remove_sku_from_product_page( $enabled ) {
+    // Nếu không phải trong trang quản trị thì ẩn SKU đi
+    if ( ! is_admin() && is_product() ) {
+        return false;
+    }
+    return $enabled;
+}
+
+// Thay đổi văn bản "0đ" thành "Miễn phí"
+add_filter( 'woocommerce_get_price_html', 'mixigaming_change_free_price_text', 100, 2 );
+
+function mixigaming_change_free_price_text( $price, $product ) {
+    // Kiểm tra nếu giá bằng 0 hoặc trống
+    if ( $product->get_price() == 0 || $product->get_price() == '' ) {
+        return '<span class="amount free-price-text">MIỄN PHÍ</span>';
+    }
+    return $price;
+}
+
+add_filter( 'woocommerce_account_menu_items', 'hieu_remove_my_account_tabs', 99 );
+
+function hieu_remove_my_account_tabs( $items ) {
+    unset( $items['downloads'] ); // Xóa mục Tệp tải xuống
+    unset( $items['edit-address'] ); // Xóa mục Địa chỉ
+    return $items;
+}
+
+/**
+ * Loại bỏ các trường địa chỉ không cần thiết tại trang Thanh toán
+ */
+add_filter( 'woocommerce_checkout_fields' , 'hieu_remove_checkout_fields' );
+
+function hieu_remove_checkout_fields( $fields ) {
+    // Loại bỏ các trường địa chỉ
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_address_1']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_country']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_phone']); // Ẩn luôn số điện thoại nếu chỉ cần email nhận key
+    
+    // Giữ lại Nâng cao (Order notes) nếu muốn, hoặc ẩn nốt bằng dòng dưới
+    // unset($fields['order']['order_comments']);
+
+    return $fields;
+}
+
+remove_action( 'woocommerce_checkout_terms_and_conditions', 'wc_checkout_privacy_policy_text', 20 );
