@@ -54,9 +54,6 @@ Hệ thống được xây dựng trên nền tảng các công nghệ mã ngu�
 - **Trang Thanh toán:** Tích hợp thông tin nhận hàng và lựa chọn phương thức thanh toán.
 ![Thanh toán](pics/thanhtoan.png)
 
-- **Trang Tài khoản:** Nơi người dùng đăng ký, đăng nhập và quản lý thông tin cá nhân.
-![Quản lý tài khoản](pics/taikhoan.png)
-
 - **Kho Game:** Danh sách các game người dùng đã sở hữu.
 ![Kho Game](pics/khogame.png)
 
